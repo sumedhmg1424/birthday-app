@@ -72,7 +72,7 @@ export class BirthdayComponent implements OnInit {
           clearInterval(this.intervalTitle);
         }
       }, 100);
-    }, 1000);
+    }, 2000);
 
     // Animate letter content
     setTimeout(() => {
@@ -84,7 +84,7 @@ export class BirthdayComponent implements OnInit {
           clearInterval(this.intervalContent);
         }
       }, 50);
-    }, 500);
+    }, 6000);
   }
 
   closeLetter(): void {

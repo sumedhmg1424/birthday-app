@@ -2,6 +2,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Coiny&family=Titan+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Sriracha&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+@media (max-width: 768px) {
+  .date-text, .title-text {
+    font-size: 1rem;
+  }
+  .letter-box {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .date-text, .title-text {
+    font-size: 0.9rem;
+  }
+  .letter-box {
+    padding: 0.5em;
+  }
+}
+
+.date-text, .title-text, .letter-box {
+  font-size: 1.2rem;   /* scales with screen size */
+  padding: 1em;        /* flexible spacing */
+  text-align: center;
+  word-wrap: break-word;
+}
+.text-letter {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
 *{
     padding: 0;
     margin: 0;
