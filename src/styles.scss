@@ -11,6 +11,9 @@
     width: 90%;
     margin: auto;
   }
+  .btn__mute {
+    top:21rem !important; 
+  }
 }
 
 @media (max-width: 480px) {
@@ -19,6 +22,9 @@
   }
   .letter-box {
     padding: 0.5em;
+  }
+  .btn__mute {
+    top:21rem !important; 
   }
 }
 
