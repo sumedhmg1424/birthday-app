@@ -60,6 +60,7 @@ html{
     height: 100%;
 }
 body {
+    align-content: center;
     position: relative;
     font-size: 16px;
     margin: 0;
@@ -1057,4 +1058,23 @@ body {
     cursor: pointer;
     color: white;
     z-index: 10000000000000000;
+}
+
+.btn__mute {
+background-color: #ff4081;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+  top: 7rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.btn__mute:hover {
+  background-color: #e91e63;
 }

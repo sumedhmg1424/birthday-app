@@ -1,4 +1,5 @@
 import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import confetti from 'canvas-confetti';
 
 
 @Component({
@@ -8,6 +9,11 @@ import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/co
   styleUrl: './birthday-component.scss',
 })
 export class BirthdayComponent implements OnInit {
+  private audio = new Audio();
+
+  isMuted = false;
+
+
    datetxt: string = "2 March";
   datatxtletter: string = "Happy Birthday, bestie! You deserve all the love, joy, and success in the world. Here’s to more adventures together. Happy birthday to you.💕";
   titleLetter: string = "To you";
@@ -30,7 +36,14 @@ export class BirthdayComponent implements OnInit {
   @ViewChild('titleLetterEl', { static: true }) titleLetterEl!: ElementRef;
   @ViewChild('boxLetter', { static: true }) boxLetter!: ElementRef;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2) {
+    this.audio.src = 'assets/birthday-music.mp3'; // path to your file
+    this.audio.load();
+    this.audio.loop = true;
+    this.audio.play(); // start playing automatically
+
+
+  }
 
   ngOnInit(): void {
     this.charArrDate = this.datetxt.split('');
@@ -53,6 +66,16 @@ export class BirthdayComponent implements OnInit {
         }
       }, 100);
     }, 12000);
+
+    this.launchConfetti();
+
+    this.audio.play();
+
+  }
+
+  toggleMute() {
+    this.isMuted = !this.isMuted;
+    this.audio.muted = this.isMuted;
   }
 
   openLetter(): void {
@@ -85,6 +108,8 @@ export class BirthdayComponent implements OnInit {
         }
       }, 50);
     }, 6000);
+
+    this.launchConfetti();
   }
 
   closeLetter(): void {
@@ -98,6 +123,31 @@ export class BirthdayComponent implements OnInit {
     this.currentIndexTitle = 0;
 
     this.isLetterOpen = false;
+  }
+
+
+  launchConfetti() {
+    const duration = 7 * 1000;
+    const end = Date.now() + duration;
+
+    (function frame() {
+      confetti({
+        particleCount: 5,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 }
+      });
+      confetti({
+        particleCount: 5,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 }
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }());
   }
 }
 

@@ -42,6 +42,12 @@
             <i class="fa-regular fa-envelope"></i>
           </div>
         </button>
+
+         <button class="btn__mute" (click)="toggleMute()">
+    <i class="fa-solid" [class.fa-volume-up]="!isMuted" [class.fa-volume-mute]="isMuted"></i>
+    
+  </button>
+
       </div>
     </div>
 
@@ -99,7 +105,7 @@
             <img width="20" src="assets/images/decorate_flower.png" alt="">
         </div>
         <div class="decorate_bottom">
-            <img src="assets/images/decorate.png" alt="" width="100">
+            <!-- <img src="assets/images/decorate.png" alt="" width="100"> -->
         </div>
         <div class="smiley__icon">
             <img src="assets/images/smiley_icon.png" alt="" width="100">

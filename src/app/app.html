@@ -1,2 +1,15 @@
+
+
+@if(!isVisible){
+<div class="container">
+<button class="cake-btn" (click)="goToGreeting()">🎂 Click</button>
+</div>
+}
+<!-- cake button -->
+ 
+
+
+@if(isVisible){
 <app-birthday-component></app-birthday-component>
-<router-outlet />
+}
+  
