@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef, ViewChild, HostListener } from '@angular/core';
 import confetti from 'canvas-confetti';
 
 
@@ -15,7 +15,16 @@ export class BirthdayComponent implements OnInit {
 
 
    datetxt: string = "2 March";
-  datatxtletter: string = "Happy Birthday, bestie! You deserve all the love, joy, and success in the world. Here’s to more adventures together. Happy birthday to you.💕";
+  datatxtletter: string = `प्रिय सखी,
+तुझ्या हास्याने उजळते माझं जग,
+तुझ्या मैत्रीने मिळतो प्रत्येक क्षणाला रंग.
+तू आहेस माझ्या आयुष्यातील गोड कविता,
+जी प्रत्येक ओळीतून देते आनंदाची भेट.
+देवाकडे हीच प्रार्थना —
+तुझं आयुष्य नेहमी प्रेमाने,
+यशाने आणि आनंदाने भरलेलं असो.
+वाढदिवसाच्या हार्दिक शुभेच्छा! 💖🎂
+`;
   titleLetter: string = "To you";
 
   charArrDate: string[] = [];
@@ -43,6 +52,10 @@ export class BirthdayComponent implements OnInit {
     this.audio.play(); // start playing automatically
 
 
+  }
+  @HostListener('document:contextmenu', ['$event'])
+  onRightClick(event: MouseEvent) {
+    event.preventDefault();
   }
 
   ngOnInit(): void {
