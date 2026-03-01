@@ -1,0 +1,18 @@
+.cake-btn {
+  align-self: center;
+  background: linear-gradient(to bottom, #f9c5d1, #f7a1b5);
+  border: 3px solid #d97a9e;
+  border-radius: 20px;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  box-shadow: 0 5px #d97a9e;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.cake-btn:hover {
+  transform: scale(1.05);
+}
+
