@@ -10,22 +10,26 @@ import confetti from 'canvas-confetti';
 })
 export class BirthdayComponent implements OnInit {
   private audio = new Audio();
+  
 
   isMuted = false;
 
 
    datetxt: string = "2 March";
-  datatxtletter: string = `प्रिय सखी,
-तुझ्या हास्याने उजळते माझं जग,
-तुझ्या मैत्रीने मिळतो प्रत्येक क्षणाला रंग.
-तू आहेस माझ्या आयुष्यातील गोड कविता,
-जी प्रत्येक ओळीतून देते आनंदाची भेट.
-देवाकडे हीच प्रार्थना —
-तुझं आयुष्य नेहमी प्रेमाने,
-यशाने आणि आनंदाने भरलेलं असो.
-वाढदिवसाच्या हार्दिक शुभेच्छा! 💖🎂
+  datatxtletter: string = `
+On your birthday, I wish you whole—
+Joy that sparkles, love that stays,
+Success that lights your brightest days 🌈💫.
+You are my safe place, my guiding star 🌟,
+No matter where life takes us, near or far.
+I’ll guard your smile 😊, uplift your dreams 🌠,
+And remind you of your worth in endless streams 💖.
+So here’s to happiness, pure and true,
+A reflection of the kindness that lives in you 🌹. 
+Happy Birthday, Meri Pyari Sakhi 🥳🎂🎁
+Forever cherished, forever you 💞.
 `;
-  titleLetter: string = "To you";
+  titleLetter: string = "To My Sakhi...🌸";
 
   charArrDate: string[] = [];
   charArrDateLetter: string[] = [];
@@ -46,11 +50,16 @@ export class BirthdayComponent implements OnInit {
   @ViewChild('boxLetter', { static: true }) boxLetter!: ElementRef;
 
   constructor(private renderer: Renderer2) {
-    this.audio.src = 'assets/birthday-music.mp3'; // path to your file
+
+
+  }
+
+  playmusic(src:string){
+    //this.audio.src = 'assets/birthday-music-3-1.1.mp3'; // path to your file
+    this.audio.src = src; // path to your file
     this.audio.load();
     this.audio.loop = true;
     this.audio.play(); // start playing automatically
-
 
   }
   @HostListener('document:contextmenu', ['$event'])
@@ -82,6 +91,8 @@ export class BirthdayComponent implements OnInit {
 
     this.launchConfetti();
 
+    this.playmusic('assets/birthday-music-3-1.1.mp3');
+
     this.audio.play();
 
   }
@@ -93,6 +104,11 @@ export class BirthdayComponent implements OnInit {
 
   openLetter(): void {
     this.isLetterOpen = true;
+    //this.audio.muted = true;
+    this.playmusic('assets/birthday-music-3-1.2.mp3');
+
+    this.audio.play();
+
 
     // Animate title
     setTimeout(() => {
@@ -136,6 +152,9 @@ export class BirthdayComponent implements OnInit {
     this.currentIndexTitle = 0;
 
     this.isLetterOpen = false;
+     this.playmusic('assets/birthday-music-3-1.1.mp3');
+
+    this.audio.play();
   }
 
 
